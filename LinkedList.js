@@ -1,14 +1,24 @@
 class LinkedList {
     constructor(){
-        this.head = new Node();
+        this.head = null;
     }
 
     append(value) {
-        
+        if (this.head == null) {
+            this.prepend(value)
+        }
+        else {
+           let temp = this.head;
+           while(temp.nextNode != null) {
+            temp = temp.nextNode;
+           }
+
+           temp.nextNode = new Node(value, null)
+        }
     }
 
     prepend(value){
-
+        this.head = new Node(value, this.head)
     }
 
     size(){
@@ -53,8 +63,8 @@ class LinkedList {
 }
 
 class Node {
-    constructor(value, nextNode){
-        this.value = null;
-        this.nextNode = null;
+    constructor(value = null, nextNode = null){
+        this.value = value;
+        this.nextNode = nextNode;
     }
 }
