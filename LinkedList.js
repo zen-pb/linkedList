@@ -22,7 +22,14 @@ class LinkedList {
     }
 
     size(){
+        let counter = 0;
+        let temp = this.head;
+        while(temp.nextNode != null) {
+            counter += 1;
+            temp = temp.nextNode;
+        }
 
+        return counter;
     }
 
     head(){
