@@ -83,7 +83,15 @@ class LinkedList {
     }
 
     contains(value){
+        let temp = this.head;
+        while(temp.nextNode != null){
+            if(temp.data === value){
+                return true;
+            }
+            temp = temp.nextNode;
+        }
 
+        return false;
     }
 
     find(value){
