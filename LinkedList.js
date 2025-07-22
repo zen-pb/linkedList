@@ -33,11 +33,18 @@ class LinkedList {
     }
 
     head(){
-
+        return this.head;
     }
 
     tail(){
+        if (!this.head) return null;
 
+        let temp = this.head;
+        while(temp.nextNode != null) {
+        temp = temp.nextNode;
+        }
+
+        return temp;
     }
 
     at(index){
