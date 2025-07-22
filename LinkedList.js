@@ -1,6 +1,7 @@
 class LinkedList {
     constructor(){
         this.head = null;
+        this.length = 0;
     }
 
     append(value) {
@@ -15,21 +16,16 @@ class LinkedList {
 
            temp.nextNode = new Node(value, null)
         }
+        this.length += 1;
     }
 
     prepend(value){
         this.head = new Node(value, this.head)
+        this.length += 1;
     }
 
     size(){
-        let counter = 0;
-        let temp = this.head;
-        while(temp.nextNode != null) {
-            counter += 1;
-            temp = temp.nextNode;
-        }
-
-        return counter;
+        return this.length;
     }
 
     head(){
@@ -50,13 +46,11 @@ class LinkedList {
     at(index){
         if (!this.head) return null;
 
-        let length = this.size();
-
         if(index < 0){
-            index = length + index;
+            index = this.length + index;
         }
 
-        if (index < 0 || index >= length) return null
+        if (index < 0 || index >= this.length) return null
 
         let counter = 0;
         let temp = this.head;
@@ -69,7 +63,23 @@ class LinkedList {
     }
 
     pop(){
+        if (!this.head) return null;
 
+        if(this.head.nextNode == null){
+            let value = this.head.value;
+            this.head = null;
+            return value;
+        }
+
+        let previous = this.head;
+        let current = this.head.nextNode;
+        while(current.nextNode != null){
+            previous = current;
+            current = current.nextNode;
+        }
+
+        previous.nextNode = null
+        return current.data;
     }
 
     contains(value){
