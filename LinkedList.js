@@ -48,12 +48,12 @@ class LinkedList {
     }
 
     removeAt(index){
-        
+
     }
 }
 
 class Node {
-    constructor(){
+    constructor(value, nextNode){
         this.value = null;
         this.nextNode = null;
     }
