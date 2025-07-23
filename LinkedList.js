@@ -85,7 +85,7 @@ class LinkedList {
     contains(value){
         let temp = this.head;
         while(temp.nextNode != null){
-            if(temp.data === value){
+            if(temp.value === value){
                 return true;
             }
             temp = temp.nextNode;
