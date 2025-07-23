@@ -109,7 +109,16 @@ class LinkedList {
     }
 
     toString(){
+        let temp = this.head;
+        let content = "";
 
+        while(temp != null){
+            content += `( ${temp.value} ) -> `;
+            temp = temp.nextNode;
+        }
+       
+        content += "null";
+        return content;
     }
 
     insertAt(value, index){
