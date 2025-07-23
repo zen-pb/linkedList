@@ -79,6 +79,7 @@ class LinkedList {
         }
 
         previous.nextNode = null
+        this.length -= 1;
         return current.value;
     }
 
