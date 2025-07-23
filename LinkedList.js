@@ -15,8 +15,8 @@ class LinkedList {
            }
 
            temp.nextNode = new Node(value, null)
+           this.length += 1;
         }
-        this.length += 1;
     }
 
     prepend(value){
