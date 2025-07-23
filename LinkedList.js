@@ -139,16 +139,35 @@ class LinkedList {
             counter += 1;
         }
 
-        if(current === index){
+        if(counter === index){
             previous.nextNode = new Node(value, current)
             return;
         }
     }
 
     removeAt(index){
-        let temp = this.head;
-        while(temp.nextNode != null){
+        if (this.head == null) throw new Error("Cannot delete from an empty list");
 
+        if (index === 0) {
+        this.head = this.head.nextNode;
+        return;
+        }
+
+        let current = this.head;
+        let previous = null;
+        let counter = 0;
+
+        while (current != null && counter < index){
+            previous = current;
+            current = current.nextNode;
+            counter += 1;
+        }
+
+        if(current == null) throw new Error("cannot delete empty list");
+
+        if(counter == index){
+            previous.nextNode = current.nextNode;
+            return;
         }
     }
 }
