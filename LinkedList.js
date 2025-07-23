@@ -122,11 +122,34 @@ class LinkedList {
     }
 
     insertAt(value, index){
+        if(index < 0) return null;
 
+        if(index == 0){
+            this.prepend(value);
+            return;
+        }
+
+        let previous = null;
+        let current = this.head;
+        let counter = 0;
+
+        while(current != null && counter < index){
+            previous = current;
+            current = current.nextNode;
+            counter += 1;
+        }
+
+        if(current === index){
+            previous.nextNode = new Node(value, current)
+            return;
+        }
     }
 
     removeAt(index){
+        let temp = this.head;
+        while(temp.nextNode != null){
 
+        }
     }
 }
 
