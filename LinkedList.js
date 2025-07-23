@@ -79,7 +79,7 @@ class LinkedList {
         }
 
         previous.nextNode = null
-        return current.data;
+        return current.value;
     }
 
     contains(value){
