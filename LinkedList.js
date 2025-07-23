@@ -95,7 +95,17 @@ class LinkedList {
     }
 
     find(value){
+        let temp = this.head;
+        let counter = 0;
+        while(temp != null){
+            if(temp.value === value){
+               return counter; 
+            }
+            counter += 1;
+            temp = temp.nextNode;
+        }
 
+        return null;
     }
 
     toString(){
